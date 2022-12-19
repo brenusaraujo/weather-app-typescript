@@ -13,3 +13,7 @@ export type PropsT = {
   onOptionSelect: (option: OptionT) => void
   onSubmit: () => void
 }
+
+export type ForecastT = {
+    
+}
