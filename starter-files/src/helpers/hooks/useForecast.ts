@@ -3,7 +3,7 @@ import { OptionT, ForecastT } from '../types'
 
 const useForecast = () => {
   const [term, setTerm] = useState<string>('')
-  const [location, setLocation] = useState<OptionT | null>(null)
+  const [city, setCity] = useState<OptionT | null>(null)
   const [options, setOptions] = useState<[]>([])
   const [forecast, setForecat] = useState<ForecastT | null>(null)
 
@@ -23,29 +23,32 @@ const useForecast = () => {
     getSearchOptions(content)
   }
 
-  const getForecast = (location: OptionT) => {
+  const getForecast = (city: OptionT) => {
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${location.lat}&lon=${location.lon}&units=metrics&appid=${process.env.REACT_APP_API_KEY}`
+      `https://api.openweathermap.org/data/2.5/forecast?lat=${city.lat}&lon=${city.lon}&units=metrics&appid=${process.env.REACT_APP_API_KEY}`
     )
       .then((res) => res.json())
-      .then((data) => setForecat(data))
+      .then((data) => {
+        const forecastData = { ...data.city, list: data.list.slice(0, 16) }
+        setForecat(forecastData)
+      })
   }
 
   const onSubmit = (): void => {
-    if (!location) return
-    getForecast(location)
+    if (!city) return
+    getForecast(city)
   }
 
   const onOptionSelect = (option: OptionT): void => {
-    setLocation(option)
+    setCity(option)
   }
 
   useEffect(() => {
-    if (location) {
-      setTerm(location.name)
+    if (city) {
+      setTerm(city.name)
       setOptions([])
     }
-  }, [location])
+  }, [city])
 
   return {
     term,
