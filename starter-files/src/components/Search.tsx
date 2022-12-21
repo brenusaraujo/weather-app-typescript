@@ -1,5 +1,6 @@
 import { ChangeEvent, useEffect, useState } from 'react'
 import { OptionT, PropsT } from '../helpers/types'
+import { BiSearch } from 'react-icons/bi'
 
 const Search = ({
   term,
@@ -9,9 +10,9 @@ const Search = ({
   onSubmit,
 }: PropsT): JSX.Element => {
   return (
-    <main className="flex justify-center items-center bg-gradient-to-br from-sky-400 via-rose-400 to-lime-400 h-[100vh] w-full">
+    <main className="flex justify-center items-center bg-sky-500/50 h-[100vh] w-full">
       <section className="w-full md:max-[500px] p-4 flex flex-col text-center items-center justify-center md:px-10 lg:p-24 h-full lg:h-[500px] bg-white bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg text-zinc-700">
-        <h1 className="text-4x1 font-thin">
+        <h1 className="text-4xl font-bold">
           Weather <span className="font-black">Forecast</span>
         </h1>
 
@@ -38,12 +39,15 @@ const Search = ({
               </li>
             ))}
           </ul>
-          <button
-            className="rounded-r-md border-2 border-zinc-100 hover:border-zinc-500 hover:text-zinc-500 text-zinc-100 px-2 py cursor-pointer"
-            onClick={onSubmit}
-          >
-            search
-          </button>
+          <div className="flex rounded-r-md border-2 border-zinc-100 hover:border-zinc-500 cursor-pointer align-middle justify-center content-center items-center">
+            <BiSearch className=' ml-2 mr-0 mt-1'/>
+            <button
+              className="rounded-r-md hover:text-zinc-500 text-zinc-100 px-2 py"
+              onClick={onSubmit}
+            >
+              search
+            </button>
+          </div>
         </div>
       </section>
     </main>
