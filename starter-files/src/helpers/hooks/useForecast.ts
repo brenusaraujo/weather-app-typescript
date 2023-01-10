@@ -19,9 +19,14 @@ const useForecast = () => {
   }
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    const content = event.target.value.trim()
-    setTerm(content)
-    getSearchOptions(content)
+    const content = event.target.value.split(' ').join(' ')
+    if (content) {
+      setTerm(content)
+      getSearchOptions(content)
+    } else {
+      setTerm(content)
+      setOptions([])
+    }
   }
 
   const getForecast = (city: OptionT) => {

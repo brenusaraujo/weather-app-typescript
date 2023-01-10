@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from 'react'
+// import { ChangeEvent, useEffect, useState } from 'react'
 import { OptionT, PropsT } from '../helpers/types'
 import { BiSearch } from 'react-icons/bi'
 
@@ -40,7 +40,7 @@ const Search = ({
             ))}
           </ul>
           <div className="flex rounded-r-md border-2 border-zinc-100 hover:border-zinc-500 cursor-pointer align-middle justify-center content-center items-center">
-            <BiSearch className=' ml-2 mr-0 mt-1'/>
+            <BiSearch className=" ml-2 mr-0 mt-1" />
             <button
               className="rounded-r-md hover:text-zinc-500 text-zinc-100 px-2 py"
               onClick={onSubmit}

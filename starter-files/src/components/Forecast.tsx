@@ -28,7 +28,7 @@ const Forecast = ({ data }: Props): JSX.Element => {
       <div className="mx-auto w-[300px]">
         <section className="text-center">
           <h2 className="text-2xl font-black">
-            {data.name} <span className="font-thin">{data.country}</span>
+            {data.name}, <span className="font-thin">{data.country}</span>
           </h2>
           <h1 className="text-4xl font-extrabold">
             <Degree temp={Math.round(today.main.temp)} />
@@ -61,10 +61,10 @@ const Forecast = ({ data }: Props): JSX.Element => {
           ))}
         </section>
         <section className="flex flex-wrap justify-between text-zinc-700">
-          <div className="w-[140px] text-xs font-bold flex flex-col items-center bg-white/20 backdrop-blur-lg rounded drop-shadow-lg py-4 mb-5">
+          <div className="w-[140px] text-xs font-bold flex flex-col items-center bg-white/20 backdrop-blur-lg rounded drop-shadow-lg py-4 mb-5 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300">
             <Sunrise /> <span className="mt-2">{getSunTime(data.sunrise)}</span>
           </div>
-          <div className="w-[140px] text-xs font-bold flex flex-col items-center bg-white/20 backdrop-blur-lg rounded drop-shadow-lg py-4 mb-5">
+          <div className="w-[140px] text-xs font-bold flex flex-col items-center bg-white/20 backdrop-blur-lg rounded drop-shadow-lg py-4 mb-5 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300">
             <Sunset /> <span className="mt-2">{getSunTime(data.sunset)}</span>
           </div>
           <Tile
