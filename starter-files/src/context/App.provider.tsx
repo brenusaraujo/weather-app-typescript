@@ -10,6 +10,7 @@ const AppProvider = ({ children }: any) => {
   const [options, setOptions] = React.useState<[]>([])
   const [forecast, setForecast] = React.useState<ForecastT | null>(null)
 
+  
   return (
     <AppContext.Provider
       value={{
